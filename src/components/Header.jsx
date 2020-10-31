@@ -5,6 +5,8 @@ const Centered = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  animation: bounceInLeft;
+  animation-duration: 1s;
 `;
 
 const Span = styled.span`

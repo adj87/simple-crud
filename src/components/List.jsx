@@ -7,6 +7,8 @@ const ListWrapper = styled.div`
   margin: auto;
   flex-direction: column;
   margin-top: 150px;
+  animation: rollIn;
+  animation-duration: 0.5s;
 `;
 
 const ListRowWrapper = styled.div`
@@ -14,6 +16,10 @@ const ListRowWrapper = styled.div`
   justify-content: center;
   align-items: center;
   flex: 1;
+  &:hover {
+    animation: pulse;
+    animation-duration: 0.5s;
+  }
 `;
 
 const ListItem = styled.div`
@@ -51,6 +57,8 @@ const PageNumber = styled.span`
   &:hover {
     color: ${({ theme }) => ` ${theme.palette.primary.dark}`};
     background-color: ${({ theme }) => ` ${theme.palette.secondary.light}`};
+    animation: heartBeat;
+    animation-duration: 1s;
   }
 `;
 const List = ({ data }) => (
