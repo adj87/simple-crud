@@ -21,7 +21,6 @@ const Title = styled.p`
 `;
 
 const Subtitle = styled.span`
-  font-family: RedHat Regular;
   font-size: 29px;
   transform: translate(25px, -25px);
   color: ${({ theme }) => theme.palette.secondary.dark};

@@ -1,27 +1,42 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { withTheme } from 'styled-components';
 
 const Background = styled.div`
-  background: rgba(0, 0, 0, 0.46);
-  backdrop-filter: blur(14px);
+  background: rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(10px);
   height: 100%;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: absolute;
+  top: 0;
 `;
 
 const CenteredDiv = styled.div`
   background-color: white;
-  width: 50%;
+  width: 20%;
   height: 50%;
   border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 9px 46px 8px rgba(0, 0, 0, 0.12);
 `;
 
-const Modal = ({ children }) => (
+const Header = styled.h1`
+  text-align: center;
+  color: ${({ theme }) => theme.palette.primary.main};
+  margin: 0;
+  text-transform: uppercase;
+  font-family: RedHat Bold;
+`;
+
+const Modal = ({ children, header }) => (
   <Background>
-    <CenteredDiv>{children}</CenteredDiv>
+    <CenteredDiv>
+      <Header>{header}</Header>
+      {children}
+    </CenteredDiv>
   </Background>
 );
 
-export default Modal;
+export default withTheme(Modal);

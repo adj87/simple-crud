@@ -10,7 +10,7 @@
   src: local('RedHat Bold'), url(./fonts/RedHatDisplay-Bold.ttf) format('truetype');
 }
 
-html {
+body {
   background: radial-gradient(91.8% 91.8% at 92.01% 97.61%, #03045e 0%, #0077b6 26.04%, #48cae4 43.75%, #d2f0fb 59.38%, #0077b6 75%, #03045e 100%), #03045e;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
