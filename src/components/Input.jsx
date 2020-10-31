@@ -4,7 +4,7 @@ import styled, { withTheme } from 'styled-components';
 const Label = styled.label`
   color: ${({ theme }) => theme.palette.primary.extraLight};
   display: block;
-  font-size: 18px;
+  font-size: 16px;
   margin-bottom: 5px;
 `;
 

@@ -14,6 +14,8 @@ const Background = styled.div`
 `;
 
 const CenteredDiv = styled.div`
+  animation: backInDown;
+  animation-duration: 0.5s;
   background-color: white;
   width: 20%;
   height: auto;
