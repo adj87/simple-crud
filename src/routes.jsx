@@ -1,5 +1,5 @@
 import React from 'react';
-import ListView from './app/ListView/ListView';
+import ListView from './app/ListView';
 
 const routes = [
   { path: '/login', component: () => <div>Login</div> },
