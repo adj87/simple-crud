@@ -1,8 +1,9 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
-import Header from './components/Header';
+import { BrowserRouter, Route } from 'react-router-dom';
+
 import theme from './utils/theme';
-import List from './components/List';
+import routes from './routes';
 
 function App() {
   const data = [
@@ -52,8 +53,11 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Header />
-      <List data={data} />
+      <BrowserRouter>
+        {routes.map(({ component, path }) => (
+          <Route component={component} path={path} />
+        ))}
+      </BrowserRouter>
     </ThemeProvider>
   );
 }
