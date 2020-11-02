@@ -6,6 +6,7 @@ const initialState = {
   loading: false,
   currentPage: 1,
   totalPages: null,
+  notifications: [],
 };
 
 const appReducer = (state = initialState, action) => {
@@ -39,6 +40,12 @@ const appReducer = (state = initialState, action) => {
       return {
         ...state,
         totalPages: payload,
+      };
+
+    case actionTypes.SET_NOTIFICATION:
+      return {
+        ...state,
+        notifications: [...state.notifications, payload],
       };
 
     default:

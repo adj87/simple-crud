@@ -7,7 +7,7 @@ const NotificationCenterBackground = styled.div`
   position: fixed;
   top: 50px;
   right: 15px;
-  z-index: 100000;
+  z-index: 1051;
 `;
 
 const Cross = styled.span`
@@ -25,6 +25,8 @@ const Notification = styled.div`
   display: flex;
   justify-content: space-between;
   border-radius: 5px;
+  animation: fadeInLeftBig;
+  animation-duration: 1s;
   background-color: ${({ type, theme }) => {
     switch (type) {
       case 'success':
