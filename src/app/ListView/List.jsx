@@ -73,7 +73,7 @@ const List = ({ data, history, totalPages, currentPage, onClickPage, onDeleteRow
   for (let index = 1; index <= totalPages; index += 1) {
     const selected = currentPage === index;
     pages.push(
-      <PageNumber selected={selected} onClick={() => onClickPage(index)}>
+      <PageNumber key={`page-${index}`} selected={selected} onClick={() => onClickPage(index)}>
         {index}
       </PageNumber>,
     );
