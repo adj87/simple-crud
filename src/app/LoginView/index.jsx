@@ -7,11 +7,15 @@ import Modal from '../../components/Modal';
 import Header from '../../components/Header';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
+import Loading from '../Loading';
 
-const LoginView = ({ login }) => {
-  const { register, handleSubmit, errors } = useForm();
+const LoginView = ({ login, loading }) => {
+  const { register, handleSubmit, errors } = useForm({
+    defaultValues: { email: 'eve.holt@reqres.in', password: 'cityslicka' },
+  });
   return (
     <>
+      <Loading loading={loading} />
       <Header />
       <Modal header="sign in">
         <form onSubmit={handleSubmit((data) => login(data))}>
@@ -19,6 +23,7 @@ const LoginView = ({ login }) => {
           <Input
             label="Password"
             name="password"
+            type="password"
             ref={register({ required: true })}
             errors={errors}
           />
@@ -30,5 +35,6 @@ const LoginView = ({ login }) => {
 };
 
 const mapDispatchToProps = { ...operations };
+const mapStateToProps = (state) => ({ ...state });
 
-export default connect(null, mapDispatchToProps)(LoginView);
+export default connect(mapStateToProps, mapDispatchToProps)(LoginView);

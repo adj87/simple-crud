@@ -1,13 +1,17 @@
 import Axios from 'axios';
-import { setUser } from './actions';
+import { setUser, setLoading } from './actions';
 
-const login = ({ email, password }) => (dispatch) => {
-  // 'https://reqres.in/api/login?email=<email>&password=<password>';
-  Axios.post(
-    `https://reqres.in/api/login?username=<${email}>&password=<${password}>&email=<${email}>`,
-  ).then((data) => {
-    dispatch(setUser(data));
-  });
+const login = (credentials) => (dispatch) => {
+  dispatch(setLoading(true));
+  Axios.post('https://reqres.in/api/login', { ...credentials })
+    .then(({ data }) => {
+      dispatch(setLoading(false));
+      dispatch(setUser({ email: credentials.email, token: data.token }));
+    })
+    .catch(() => {
+      dispatch(setLoading(false));
+      // dispatch();
+    });
 };
 
 export default { login };
