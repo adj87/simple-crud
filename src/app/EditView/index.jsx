@@ -54,7 +54,7 @@ const EditView = ({ fetchUser, history, updateUser }) => {
             </Row>
             <Row className="no-gutters mt-3">
               <Col className="mr-2">
-                <Button inverse color="secondary" onClick={onCancel}>
+                <Button inverse color="secondary" onClick={onCancel} type="button">
                   Cancel
                 </Button>
               </Col>

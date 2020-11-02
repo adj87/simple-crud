@@ -7,6 +7,7 @@ import theme from './utils/theme';
 import routes from './routes';
 import store from './redux/store';
 import ProtectedRoute from './components/ProtectedRoute';
+import Loading from './app/Loading';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
               return <Route component={component} path={path} exact={exact} />;
             })}
           </Switch>
+          <Loading />
         </BrowserRouter>
       </ThemeProvider>
     </Provider>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { SyncLoader } from 'react-spinners';
 import styled, { withTheme } from 'styled-components';
+import { connect } from 'react-redux';
 
 const Background = styled.div`
   position: fixed;
@@ -15,7 +16,7 @@ const Background = styled.div`
   z-index: 5000;
 `;
 
-export default withTheme(({ loading, theme }) => {
+const Loading = ({ loading, theme }) => {
   const display = loading ? 'flex' : 'none';
 
   return (
@@ -23,4 +24,10 @@ export default withTheme(({ loading, theme }) => {
       <SyncLoader sizeUnit="px" size={25} color={theme.palette.primary.dark} loading={loading} />
     </Background>
   );
-});
+};
+
+const mapStateToProps = ({ loading }) => ({ loading });
+
+const LoadingWithTheme = withTheme(Loading);
+
+export default connect(mapStateToProps, null)(LoadingWithTheme);

@@ -8,16 +8,14 @@ import Modal from '../../components/Modal';
 import Header from '../../components/Header';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
-import Loading from '../Loading';
 
-const LoginView = ({ login, loading, history }) => {
+const LoginView = ({ login, history }) => {
   const { register, handleSubmit, errors } = useForm({
     defaultValues: { email: 'eve.holt@reqres.in', password: 'cityslicka' },
   });
 
   return (
     <>
-      <Loading loading={loading} />
       <Header />
       <Modal header="sign in">
         <form onSubmit={handleSubmit((data) => login(data, history))}>
