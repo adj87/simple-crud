@@ -8,6 +8,7 @@ import routes from './routes';
 import store from './redux/store';
 import ProtectedRoute from './components/ProtectedRoute';
 import Loading from './app/Loading';
+import NotificationCenter from './app/NotificationCenter';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             })}
           </Switch>
           <Loading />
+          <NotificationCenter />
         </BrowserRouter>
       </ThemeProvider>
     </Provider>
