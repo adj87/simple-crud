@@ -68,4 +68,8 @@ const setNotification = (notification) => (dispatch) => {
   return dispatch(actions.setNotification(notification));
 };
 
-export default { login, fetchUsers, fetchUser, updateUser, setNotification };
+const unsetNotification = (notification) => (dispatch) => {
+  return dispatch(actions.unsetNotification(notification));
+};
+
+export default { login, fetchUsers, fetchUser, updateUser, setNotification, unsetNotification };

@@ -48,6 +48,12 @@ const appReducer = (state = initialState, action) => {
         notifications: [...state.notifications, payload],
       };
 
+    case actionTypes.UNSET_SET_NOTIFICATION:
+      return {
+        ...state,
+        notifications: [...state.notifications.filter((el, i) => i !== payload)],
+      };
+
     default:
       return state;
   }

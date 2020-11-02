@@ -30,4 +30,17 @@ const setNotification = (notification) => ({
   payload: notification,
 });
 
-export { setLoading, setData, setUser, setCurrentPage, setTotalPages, setNotification };
+const unsetNotification = (notification) => ({
+  type: actionTypes.UNSET_SET_NOTIFICATION,
+  payload: notification,
+});
+
+export {
+  setLoading,
+  setData,
+  setUser,
+  setCurrentPage,
+  setTotalPages,
+  setNotification,
+  unsetNotification,
+};

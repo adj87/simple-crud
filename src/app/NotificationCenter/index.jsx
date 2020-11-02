@@ -40,18 +40,13 @@ const Notification = styled.div`
   }};
 `;
 
-const NotificationCenter = ({
-  notifications = [
-    { type: 'success', message: 'Biennnnnn' },
-    { type: 'error', message: 'Biennnnnn' },
-  ],
-}) => {
+const NotificationCenter = ({ notifications, unsetNotification }) => {
   return (
     <NotificationCenterBackground>
-      {notifications.map((el) => (
+      {notifications.map((el, i) => (
         <Notification type={el.type}>
           <span>{el.message}</span>
-          <Cross />
+          <Cross onClick={() => unsetNotification(i)} />
         </Notification>
       ))}
     </NotificationCenterBackground>
