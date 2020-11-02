@@ -15,4 +15,14 @@ const setUser = (user) => ({
   payload: user,
 });
 
-export { setLoading, setData, setUser };
+const setCurrentPage = (page) => ({
+  type: actionTypes.SET_CURRENT_PAGE,
+  payload: page,
+});
+
+const setTotalPages = (pages) => ({
+  type: actionTypes.SET_TOTAL_PAGES,
+  payload: pages,
+});
+
+export { setLoading, setData, setUser, setCurrentPage, setTotalPages };

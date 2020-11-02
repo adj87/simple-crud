@@ -46,7 +46,9 @@ const PageNumber = styled.span`
   width: 38px;
   height: 38px;
   border-radius: 100%;
-  background-color: ${({ theme }) => ` ${theme.palette.secondary.dark}`};
+  background-color: ${({ theme, selected }) => {
+    return ` ${selected ? theme.palette.secondary.main : theme.palette.secondary.dark}`;
+  }};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -64,31 +66,45 @@ const PageNumber = styled.span`
     animation-duration: 1s;
   }
 `;
-const List = ({ data, history }) => (
-  <ListWrapper>
-    <ListRowWrapper>
-      <ListItem type="header">Name</ListItem>
-      <ListItem type="header">First Name</ListItem>
-    </ListRowWrapper>
-    {data.length === 0 ? (
+
+const List = ({ data, history, totalPages, currentPage, onClickPage }) => {
+  const pages = [];
+
+  for (let index = 1; index <= totalPages; index += 1) {
+    const selected = currentPage === index;
+    pages.push(
+      <PageNumber selected={selected} onClick={() => onClickPage(index)}>
+        {index}
+      </PageNumber>,
+    );
+  }
+
+  return (
+    <ListWrapper>
       <ListRowWrapper>
-        {' '}
-        <ListItem>No data to show</ListItem>
+        <ListItem type="header">Name</ListItem>
+        <ListItem type="header">First Name</ListItem>
       </ListRowWrapper>
-    ) : (
-      data.map((el) => (
-        <ListRowWrapper key={el.first_name} bodyRow onClick={() => history.push(`/edit/${el.id}`)}>
-          <ListItem>{el.first_name}</ListItem>
-          <ListItem>{el.last_name}</ListItem>
+      {data.length === 0 ? (
+        <ListRowWrapper>
+          {' '}
+          <ListItem>No data to show</ListItem>
         </ListRowWrapper>
-      ))
-    )}
-    <ListPagination>
-      {[1, 2, 3].map((el) => (
-        <PageNumber>{el}</PageNumber>
-      ))}
-    </ListPagination>
-  </ListWrapper>
-);
+      ) : (
+        data.map((el) => (
+          <ListRowWrapper
+            key={el.first_name}
+            bodyRow
+            onClick={() => history.push(`/edit/${el.id}`)}
+          >
+            <ListItem>{el.first_name}</ListItem>
+            <ListItem>{el.last_name}</ListItem>
+          </ListRowWrapper>
+        ))
+      )}
+      <ListPagination>{pages}</ListPagination>
+    </ListWrapper>
+  );
+};
 
 export default withTheme(List);

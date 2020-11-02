@@ -4,6 +4,8 @@ const initialState = {
   user: null,
   data: null,
   loading: false,
+  currentPage: 1,
+  totalPages: null,
 };
 
 const appReducer = (state = initialState, action) => {
@@ -24,6 +26,18 @@ const appReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: payload,
+      };
+
+    case actionTypes.SET_CURRENT_PAGE:
+      return {
+        ...state,
+        currentPage: payload,
+      };
+
+    case actionTypes.SET_TOTAL_PAGES:
+      return {
+        ...state,
+        totalPages: payload,
       };
 
     default:
