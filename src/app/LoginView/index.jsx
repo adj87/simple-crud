@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import operations from '../../redux/operations';
@@ -9,16 +10,17 @@ import Input from '../../components/Input';
 import Button from '../../components/Button';
 import Loading from '../Loading';
 
-const LoginView = ({ login, loading }) => {
+const LoginView = ({ login, loading, history }) => {
   const { register, handleSubmit, errors } = useForm({
     defaultValues: { email: 'eve.holt@reqres.in', password: 'cityslicka' },
   });
+
   return (
     <>
       <Loading loading={loading} />
       <Header />
       <Modal header="sign in">
-        <form onSubmit={handleSubmit((data) => login(data))}>
+        <form onSubmit={handleSubmit((data) => login(data, history))}>
           <Input label="Email" name="email" ref={register({ required: true })} errors={errors} />
           <Input
             label="Password"
@@ -37,4 +39,6 @@ const LoginView = ({ login, loading }) => {
 const mapDispatchToProps = { ...operations };
 const mapStateToProps = (state) => ({ ...state });
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginView);
+const LoginViewWithRouter = withRouter(LoginView);
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginViewWithRouter);
