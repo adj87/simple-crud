@@ -67,7 +67,7 @@ const PageNumber = styled.span`
   }
 `;
 
-const List = ({ data, history, totalPages, currentPage, onClickPage }) => {
+const List = ({ data, history, totalPages, currentPage, onClickPage, onDeleteRow }) => {
   const pages = [];
 
   for (let index = 1; index <= totalPages; index += 1) {
@@ -84,6 +84,7 @@ const List = ({ data, history, totalPages, currentPage, onClickPage }) => {
       <ListRowWrapper>
         <ListItem type="header">Name</ListItem>
         <ListItem type="header">First Name</ListItem>
+        <ListItem type="header">Actions</ListItem>
       </ListRowWrapper>
       {data.length === 0 ? (
         <ListRowWrapper>
@@ -99,6 +100,11 @@ const List = ({ data, history, totalPages, currentPage, onClickPage }) => {
           >
             <ListItem>{el.first_name}</ListItem>
             <ListItem>{el.last_name}</ListItem>
+            <ListItem onClick={(e) => onDeleteRow(e, el.id)}>
+              <span role="img" aria-label="delete">
+                🗑️
+              </span>
+            </ListItem>
           </ListRowWrapper>
         ))
       )}

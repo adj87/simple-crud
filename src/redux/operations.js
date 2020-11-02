@@ -64,6 +64,20 @@ const updateUser = ({ id, ...user }, cb) => (dispatch) => {
     });
 };
 
+const deleteUser = (id) => (dispatch) => {
+  dispatch(actions.setLoading(true));
+  Axios.delete(`https://reqres.in/api/users/${id}?delay=${delay}`)
+    .then(() => {
+      dispatch(actions.setNotification({ type: 'success', message: `User ${id} :deleted` }));
+      dispatch(actions.setLoading(false));
+    })
+    .catch((err) => {
+      const { error } = err.response.data;
+      dispatch(actions.setNotification({ type: 'error', message: error }));
+      dispatch(actions.setLoading(false));
+    });
+};
+
 const setNotification = (notification) => (dispatch) => {
   return dispatch(actions.setNotification(notification));
 };
@@ -72,4 +86,12 @@ const unsetNotification = (notification) => (dispatch) => {
   return dispatch(actions.unsetNotification(notification));
 };
 
-export default { login, fetchUsers, fetchUser, updateUser, setNotification, unsetNotification };
+export default {
+  login,
+  fetchUsers,
+  fetchUser,
+  updateUser,
+  setNotification,
+  unsetNotification,
+  deleteUser,
+};
