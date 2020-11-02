@@ -1,21 +1,25 @@
 import React from 'react';
-import { ThemeProvider } from 'styled-components';
+import { Provider } from 'react-redux';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { ThemeProvider } from 'styled-components';
 
 import theme from './utils/theme';
 import routes from './routes';
+import store from './redux/store';
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
-      <BrowserRouter>
-        <Switch>
-          {routes.map(({ component, path, exact }) => (
-            <Route component={component} path={path} exact={exact} />
-          ))}
-        </Switch>
-      </BrowserRouter>
-    </ThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <BrowserRouter>
+          <Switch>
+            {routes.map(({ component, path, exact }) => (
+              <Route component={component} path={path} exact={exact} />
+            ))}
+          </Switch>
+        </BrowserRouter>
+      </ThemeProvider>
+    </Provider>
   );
 }
 
