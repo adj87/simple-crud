@@ -1,5 +1,5 @@
 import Axios from 'axios';
-import { setUser, setLoading, setData } from './actions';
+import { setUser, setLoading, setData, setCurrentPage, setTotalPages } from './actions';
 
 const delay = 1;
 
@@ -14,15 +14,16 @@ const login = (credentials, history) => (dispatch) => {
     })
     .catch(() => {
       dispatch(setLoading(false));
-      // dispatch();
     });
 };
 
-const fetchUsers = () => (dispatch) => {
+const fetchUsers = (page) => (dispatch) => {
   dispatch(setLoading(true));
-  Axios.get(`https://reqres.in/api/users?delay=${delay}`)
+  Axios.get(`https://reqres.in/api/users?delay=${delay}&page=${page}&per_page=3`)
     .then(({ data }) => {
       dispatch(setLoading(false));
+      dispatch(setCurrentPage(data.page));
+      dispatch(setTotalPages(data.total_pages));
       dispatch(setData(data.data));
     })
     .catch(() => {

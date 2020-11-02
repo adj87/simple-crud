@@ -29,18 +29,20 @@ const Subtitle = styled.span`
   color: ${({ theme }) => theme.palette.secondary.dark};
 `;
 
-const Header = ({ withAnimation = true }) => (
-  <>
-    <Centered withAnimation={withAnimation}>
-      <Title>
-        <Span primaryColor="extraLight">Simple </Span>
-        <Span primaryColor="contrastText">CRUD</Span>
-      </Title>
-    </Centered>
-    <Centered withAnimation={withAnimation}>
-      <Subtitle>built with react</Subtitle>
-    </Centered>
-  </>
-);
+const Header = ({ withAnimation = true }) => {
+  return (
+    <>
+      <Centered withAnimation={withAnimation}>
+        <Title>
+          <Span primaryColor="extraLight">Simple </Span>
+          <Span primaryColor="contrastText">CRUD</Span>
+        </Title>
+      </Centered>
+      <Centered withAnimation={withAnimation}>
+        <Subtitle>built with react</Subtitle>
+      </Centered>
+    </>
+  );
+};
 
-export default withTheme(Header);
+export default withTheme(React.memo(Header));
