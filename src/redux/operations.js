@@ -16,7 +16,7 @@ const login = (credentials, history) => (dispatch) => {
     });
 };
 
-const fetchData = () => (dispatch) => {
+const fetchUsers = () => (dispatch) => {
   dispatch(setLoading(true));
   Axios.get('https://reqres.in/api/users')
     .then(({ data }) => {
@@ -29,4 +29,29 @@ const fetchData = () => (dispatch) => {
     });
 };
 
-export default { login, fetchData };
+const fetchUser = (id, cb) => (dispatch) => {
+  dispatch(setLoading(true));
+  Axios.get(`https://reqres.in/api/users/${id}`)
+    .then(({ data }) => {
+      dispatch(setLoading(false));
+      cb(data.data);
+    })
+    .catch(() => {
+      dispatch(setLoading(false));
+      // dispatch();
+    });
+};
+
+const updateUser = ({ id, ...user }, cb) => (dispatch) => {
+  dispatch(setLoading(true));
+  Axios.put(`https://reqres.in/api/users/${id}`, user)
+    .then(({ data }) => {
+      dispatch(setLoading(false));
+      cb(data.data);
+    })
+    .catch(() => {
+      dispatch(setLoading(false));
+    });
+};
+
+export default { login, fetchUsers, fetchUser, updateUser };

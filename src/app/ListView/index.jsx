@@ -6,9 +6,9 @@ import Header from '../../components/Header';
 import List from './List';
 import operations from '../../redux/operations';
 
-const ListView = ({ fetchData, data, history }) => {
+const ListView = ({ fetchUsers, data, history }) => {
   useEffect(() => {
-    fetchData();
+    fetchUsers();
   }, []);
 
   return (

@@ -7,7 +7,7 @@ const ListWrapper = styled.div`
   margin: auto;
   flex-direction: column;
   margin-top: 150px;
-  animation: rollIn;
+  animation: rotateIn;
   animation-duration: 0.5s;
 `;
 
