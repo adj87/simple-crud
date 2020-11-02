@@ -1,5 +1,5 @@
 import Axios from 'axios';
-import { setUser, setLoading } from './actions';
+import { setUser, setLoading, setData } from './actions';
 
 const login = (credentials, history) => (dispatch) => {
   dispatch(setLoading(true));
@@ -16,4 +16,17 @@ const login = (credentials, history) => (dispatch) => {
     });
 };
 
-export default { login };
+const fetchData = () => (dispatch) => {
+  dispatch(setLoading(true));
+  Axios.get('https://reqres.in/api/users')
+    .then(({ data }) => {
+      dispatch(setLoading(false));
+      dispatch(setData(data.data));
+    })
+    .catch(() => {
+      dispatch(setLoading(false));
+      // dispatch();
+    });
+};
+
+export default { login, fetchData };

@@ -16,16 +16,19 @@ const ListRowWrapper = styled.div`
   justify-content: center;
   align-items: center;
   flex: 1;
+  cursor: ${({ bodyRow }) => (bodyRow ? 'pointer' : 'default')};
   &:hover {
-    animation: pulse;
-    animation-duration: 0.5s;
+    animation: ${({ bodyRow }) => bodyRow && 'pulse'};
+    animation-duration: ${({ bodyRow }) => bodyRow && '0.5s'};
   }
 `;
 
 const ListItem = styled.div`
   flex: 1;
   text-align: center;
-  background-color: ${({ type, theme }) => (type === 'header' ? theme.palette.secondary.dark : 'white')};
+  background-color: ${({ type, theme }) => {
+    return type === 'header' ? theme.palette.secondary.dark : 'white';
+  }};
   padding: 8px;
   color: ${({ type, theme }) => (type === 'header' ? theme.palette.secondary.light : '#d1d1d1')};
 
@@ -61,18 +64,25 @@ const PageNumber = styled.span`
     animation-duration: 1s;
   }
 `;
-const List = ({ data }) => (
+const List = ({ data, history }) => (
   <ListWrapper>
     <ListRowWrapper>
       <ListItem type="header">Name</ListItem>
       <ListItem type="header">First Name</ListItem>
     </ListRowWrapper>
-    {data.map((el) => (
-      <ListRowWrapper key={el.first_name}>
-        <ListItem>{el.first_name}</ListItem>
-        <ListItem>{el.last_name}</ListItem>
+    {data.length === 0 ? (
+      <ListRowWrapper>
+        {' '}
+        <ListItem>No data to show</ListItem>
       </ListRowWrapper>
-    ))}
+    ) : (
+      data.map((el) => (
+        <ListRowWrapper key={el.first_name} bodyRow onClick={() => history.push(`/edit/${el.id}`)}>
+          <ListItem>{el.first_name}</ListItem>
+          <ListItem>{el.last_name}</ListItem>
+        </ListRowWrapper>
+      ))
+    )}
     <ListPagination>
       {[1, 2, 3].map((el) => (
         <PageNumber>{el}</PageNumber>

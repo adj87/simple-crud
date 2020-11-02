@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import { Container, Row, Col } from 'reactstrap';
 import Modal from '../../components/Modal';
 import Header from '../../components/Header';
@@ -36,4 +37,4 @@ const EditView = () => (
   </>
 );
 
-export default EditView;
+export default withRouter(EditView);

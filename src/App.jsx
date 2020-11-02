@@ -15,8 +15,9 @@ function App() {
         <BrowserRouter>
           <Switch>
             {routes.map(({ component, path, exact, authIsRequired }) => {
-              if (authIsRequired) return <ProtectedRoute component={component} path={path} />;
-
+              if (authIsRequired) {
+                return <ProtectedRoute component={component} path={path} exact={exact} />;
+              }
               return <Route component={component} path={path} exact={exact} />;
             })}
           </Switch>
