@@ -5,8 +5,9 @@ const login = (credentials, history) => (dispatch) => {
   dispatch(setLoading(true));
   Axios.post('https://reqres.in/api/login', { ...credentials })
     .then(({ data }) => {
+      const user = { email: credentials.email, token: data.token };
       dispatch(setLoading(false));
-      dispatch(setUser({ email: credentials.email, token: data.token }));
+      dispatch(setUser(user));
       history.push('/home');
     })
     .catch(() => {
