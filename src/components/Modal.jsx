@@ -10,8 +10,8 @@ const ModalHeader = styled.h1`
   font-family: RedHat Bold;
 `;
 
-const ModalWrapper = ({ children, header, centered = true }) => (
-  <Modal isOpen centered={centered} size="sm">
+const ModalWrapper = ({ children, header, centered = true, size = 'md' }) => (
+  <Modal isOpen centered={centered} size={size}>
     <ModalHeader>{header}</ModalHeader>
     <ModalBody>{children}</ModalBody>
   </Modal>

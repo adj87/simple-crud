@@ -7,6 +7,7 @@ import theme from './utils/theme';
 import routes from './routes';
 import store from './redux/store';
 import ProtectedRoute from './components/ProtectedRoute';
+import Loading from './app/Loading';
 
 function App() {
   return (
@@ -15,11 +16,13 @@ function App() {
         <BrowserRouter>
           <Switch>
             {routes.map(({ component, path, exact, authIsRequired }) => {
-              if (authIsRequired) return <ProtectedRoute component={component} path={path} />;
-
+              if (authIsRequired) {
+                return <ProtectedRoute component={component} path={path} exact={exact} />;
+              }
               return <Route component={component} path={path} exact={exact} />;
             })}
           </Switch>
+          <Loading />
         </BrowserRouter>
       </ThemeProvider>
     </Provider>

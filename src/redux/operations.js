@@ -1,9 +1,11 @@
 import Axios from 'axios';
-import { setUser, setLoading } from './actions';
+import { setUser, setLoading, setData } from './actions';
+
+const delay = 1;
 
 const login = (credentials, history) => (dispatch) => {
   dispatch(setLoading(true));
-  Axios.post('https://reqres.in/api/login', { ...credentials })
+  Axios.post(`https://reqres.in/api/login?delay=${delay}`, { ...credentials })
     .then(({ data }) => {
       const user = { email: credentials.email, token: data.token };
       dispatch(setLoading(false));
@@ -16,4 +18,42 @@ const login = (credentials, history) => (dispatch) => {
     });
 };
 
-export default { login };
+const fetchUsers = () => (dispatch) => {
+  dispatch(setLoading(true));
+  Axios.get(`https://reqres.in/api/users?delay=${delay}`)
+    .then(({ data }) => {
+      dispatch(setLoading(false));
+      dispatch(setData(data.data));
+    })
+    .catch(() => {
+      dispatch(setLoading(false));
+      // dispatch();
+    });
+};
+
+const fetchUser = (id, cb) => (dispatch) => {
+  dispatch(setLoading(true));
+  Axios.get(`https://reqres.in/api/users/${id}?delay=${delay}`)
+    .then(({ data }) => {
+      dispatch(setLoading(false));
+      cb(data.data);
+    })
+    .catch(() => {
+      dispatch(setLoading(false));
+      // dispatch();
+    });
+};
+
+const updateUser = ({ id, ...user }, cb) => (dispatch) => {
+  dispatch(setLoading(true));
+  Axios.put(`https://reqres.in/api/users/${id}?delay=${delay}`, user)
+    .then(() => {
+      dispatch(setLoading(false));
+      cb();
+    })
+    .catch(() => {
+      dispatch(setLoading(false));
+    });
+};
+
+export default { login, fetchUsers, fetchUser, updateUser };

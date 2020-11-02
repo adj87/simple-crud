@@ -5,7 +5,10 @@ const Centered = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: bounceInLeft;
+  animation: ${({ withAnimation }) => {
+    const animationType = Math.random() >= 0.5 ? 'bounceInLeft' : 'bounceInRight';
+    return withAnimation ? animationType : '';
+  }};
   animation-duration: 1s;
 `;
 
@@ -26,15 +29,15 @@ const Subtitle = styled.span`
   color: ${({ theme }) => theme.palette.secondary.dark};
 `;
 
-const Header = () => (
+const Header = ({ withAnimation = true }) => (
   <>
-    <Centered>
+    <Centered withAnimation={withAnimation}>
       <Title>
         <Span primaryColor="extraLight">Simple </Span>
         <Span primaryColor="contrastText">CRUD</Span>
       </Title>
     </Centered>
-    <Centered>
+    <Centered withAnimation={withAnimation}>
       <Subtitle>built with react</Subtitle>
     </Centered>
   </>
