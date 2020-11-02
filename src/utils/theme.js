@@ -19,6 +19,7 @@ const theme = {
       light: '#FFDCA8',
     },
     error: '#FF5858',
+    success: '#47ad34',
     grey: {
       50: '#fafafa',
       100: '#f5f5f5',

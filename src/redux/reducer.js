@@ -22,6 +22,7 @@ const appReducer = (state = initialState, action) => {
         ...state,
         data: payload,
       };
+
     case actionTypes.SET_LOADING:
       return {
         ...state,
