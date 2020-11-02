@@ -64,12 +64,13 @@ const updateUser = ({ id, ...user }, cb) => (dispatch) => {
     });
 };
 
-const deleteUser = (id) => (dispatch) => {
+const deleteUser = (id, page) => (dispatch) => {
   dispatch(actions.setLoading(true));
   Axios.delete(`https://reqres.in/api/users/${id}?delay=${delay}`)
     .then(() => {
       dispatch(actions.setNotification({ type: 'success', message: `User ${id} :deleted` }));
       dispatch(actions.setLoading(false));
+      fetchUsers(page)(dispatch);
     })
     .catch((err) => {
       const { error } = err.response.data;
