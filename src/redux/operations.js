@@ -45,9 +45,9 @@ const fetchUser = (id, cb) => (dispatch) => {
 const updateUser = ({ id, ...user }, cb) => (dispatch) => {
   dispatch(setLoading(true));
   Axios.put(`https://reqres.in/api/users/${id}`, user)
-    .then(({ data }) => {
+    .then(() => {
       dispatch(setLoading(false));
-      cb(data.data);
+      cb();
     })
     .catch(() => {
       dispatch(setLoading(false));
