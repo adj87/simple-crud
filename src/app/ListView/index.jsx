@@ -14,7 +14,7 @@ const ListView = ({ fetchUsers, data, history, totalPages, currentPage, deleteUs
   const onClickPage = (page) => fetchUsers(page);
   const onDeleteRow = (e, id) => {
     e.stopPropagation();
-    deleteUser(id);
+    deleteUser(id, currentPage);
   };
 
   return (

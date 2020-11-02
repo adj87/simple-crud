@@ -29,9 +29,13 @@ const Subtitle = styled.span`
   color: ${({ theme }) => theme.palette.secondary.dark};
 `;
 
+const Wrapper = styled.div`
+  margin-top: 20px;
+`;
+
 const Header = ({ withAnimation = true }) => {
   return (
-    <>
+    <Wrapper>
       <Centered withAnimation={withAnimation}>
         <Title>
           <Span primaryColor="extraLight">Simple </Span>
@@ -41,7 +45,7 @@ const Header = ({ withAnimation = true }) => {
       <Centered withAnimation={withAnimation}>
         <Subtitle>built with react</Subtitle>
       </Centered>
-    </>
+    </Wrapper>
   );
 };
 
