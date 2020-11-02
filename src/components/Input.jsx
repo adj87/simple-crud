@@ -33,13 +33,13 @@ const Error = styled.span`
 `;
 
 export default withTheme(
-  React.forwardRef(({ label, name, errors }, ref) => {
+  React.forwardRef(({ label, name, errors, type }, ref) => {
     const error = errors[name];
     const errorMessage = error ? error.message || error.type : null;
     return (
       <InputWrapper>
         <Label>{label}</Label>
-        <InputText ref={ref} name={name} />
+        <InputText ref={ref} name={name} type={type ?? 'text'} />
         {errorMessage && <Error>{errorMessage}</Error>}
       </InputWrapper>
     );
