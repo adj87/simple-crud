@@ -27,9 +27,21 @@ const InputWrapper = styled.div`
   margin: 15px 0px;
 `;
 
-export default withTheme(({ label, value }) => (
-  <InputWrapper>
-    <Label>{label}</Label>
-    <InputText value={value} />
-  </InputWrapper>
-));
+const Error = styled.span`
+  font-size: 12px;
+  color: ${({ theme }) => theme.palette.error};
+`;
+
+export default withTheme(
+  React.forwardRef(({ label, name, errors, type }, ref) => {
+    const error = errors[name];
+    const errorMessage = error ? error.message || error.type : null;
+    return (
+      <InputWrapper>
+        <Label>{label}</Label>
+        <InputText ref={ref} name={name} type={type ?? 'text'} />
+        {errorMessage && <Error>{errorMessage}</Error>}
+      </InputWrapper>
+    );
+  }),
+);
