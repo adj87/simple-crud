@@ -27,9 +27,11 @@ const InputWrapper = styled.div`
   margin: 15px 0px;
 `;
 
-export default withTheme(({ label, value }) => (
-  <InputWrapper>
-    <Label>{label}</Label>
-    <InputText value={value} />
-  </InputWrapper>
-));
+export default withTheme(
+  React.forwardRef(({ label, name }, ref) => (
+    <InputWrapper>
+      <Label>{label}</Label>
+      <InputText ref={ref} name={name} />
+    </InputWrapper>
+  )),
+);
