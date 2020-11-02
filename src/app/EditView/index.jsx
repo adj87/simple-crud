@@ -1,27 +1,37 @@
 import React from 'react';
-import styled from 'styled-components';
+import { Container, Row, Col } from 'reactstrap';
 import Modal from '../../components/Modal';
 import Header from '../../components/Header';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 
-const ButtonsWrapper = styled.div`
-  display: flex;
-`;
-
 const EditView = () => (
   <>
     <Header />
     <Modal header="Edit user">
-      <Input label="User Name" value="yeah" />
-      <Input label="Sur Name" value="yeah" />
-      <Input label="Email" value="yeah" />
-      <ButtonsWrapper>
-        <Button onClick={() => console.log('ads')}>Cancel</Button>
-        <Button color="secondary" onClick={() => console.log('ads')}>
-          Edit
-        </Button>
-      </ButtonsWrapper>
+      <Container>
+        <Row>
+          <Col xs={12}>
+            <Input label="User Name" value="yeah" />
+          </Col>
+          <Col xs={12}>
+            <Input label="Sur Name" value="yeah" />
+          </Col>
+          <Col xs={12}>
+            <Input label="Email" value="yeah" />
+          </Col>
+        </Row>
+        <Row className="no-gutters mt-3">
+          <Col className="mr-2">
+            <Button inverse color="secondary">
+              Cancel
+            </Button>
+          </Col>
+          <Col className="ml-2">
+            <Button color="secondary">Edit</Button>
+          </Col>
+        </Row>
+      </Container>
     </Modal>
   </>
 );
