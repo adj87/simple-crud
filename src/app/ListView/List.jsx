@@ -16,7 +16,8 @@ const ListWrapper = styled.div`
 const ListRowWrapper = styled.div`
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: strech;
+  background-color: white;
   flex: 1;
   cursor: ${({ bodyRow }) => (bodyRow ? 'pointer' : 'default')};
   &:hover {
@@ -33,7 +34,6 @@ const ListItem = styled.div`
   }};
   padding: 8px;
   color: ${({ type, theme }) => (type === 'header' ? theme.palette.secondary.light : '#d1d1d1')};
-
   border-bottom: ${({ theme }) => ` 0.5px solid ${theme.palette.secondary.light}`};
 `;
 
