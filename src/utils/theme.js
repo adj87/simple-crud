@@ -1,4 +1,4 @@
-const theme = {
+export const theme = {
   breakpoints: {
     xs: 300,
     sm: 500,
@@ -39,4 +39,9 @@ const theme = {
   },
 };
 
-export default theme;
+export const device = {
+  deviceXs: `(min-width: ${theme.breakpoints.xs}px)`,
+  deviceSm: `(min-width: ${theme.breakpoints.sm}px)`,
+  deviceMd: `(min-width: ${theme.breakpoints.md}px)`,
+  deviceLg: `(min-width: ${theme.breakpoints.lg}px)`,
+};

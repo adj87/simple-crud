@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React from 'react';
 import styled, { withTheme } from 'styled-components';
 
@@ -100,8 +102,13 @@ const List = ({ data, history, totalPages, currentPage, onClickPage, onDeleteRow
           >
             <ListItem>{el.first_name}</ListItem>
             <ListItem>{el.last_name}</ListItem>
-            <ListItem onClick={(e) => onDeleteRow(e, el.id)}>
-              <span role="img" aria-label="delete">
+            <ListItem>
+              <span
+                key={`delete-${el.first_name}`}
+                role="img"
+                aria-label="delete"
+                onClick={(e) => onDeleteRow(e, el.id)}
+              >
                 🗑️
               </span>
             </ListItem>
