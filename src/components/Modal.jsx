@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { withTheme } from 'styled-components';
-import { device } from '../utils/theme';
+import { device } from '../constantsAndUtils';
 
 const Background = styled.div`
   background: rgba(0, 0, 0, 0.22);

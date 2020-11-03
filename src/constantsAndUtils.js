@@ -45,3 +45,5 @@ export const device = {
   deviceMd: `(min-width: ${theme.breakpoints.md}px)`,
   deviceLg: `(min-width: ${theme.breakpoints.lg}px)`,
 };
+
+export const delayApiReq = 1;
