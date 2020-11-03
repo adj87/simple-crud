@@ -1,7 +1,7 @@
-import React from 'react';
 import ListView from './app/ListView';
 import LoginView from './app/LoginView';
 import EditView from './app/EditView';
+import NotFound from './app/NotFoundView';
 
 const routes = [
   { path: '/login', component: LoginView },
@@ -12,7 +12,7 @@ const routes = [
     exact: true,
     authIsRequired: true,
   },
-  { path: '*', component: () => <div>404</div> },
+  { path: '*', component: NotFound },
 ];
 
 export default routes;
