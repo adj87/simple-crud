@@ -25,4 +25,22 @@ const setTotalPages = (pages) => ({
   payload: pages,
 });
 
-export { setLoading, setData, setUser, setCurrentPage, setTotalPages };
+const setNotification = (notification) => ({
+  type: actionTypes.SET_NOTIFICATION,
+  payload: notification,
+});
+
+const unsetNotification = (notification) => ({
+  type: actionTypes.UNSET_SET_NOTIFICATION,
+  payload: notification,
+});
+
+export {
+  setLoading,
+  setData,
+  setUser,
+  setCurrentPage,
+  setTotalPages,
+  setNotification,
+  unsetNotification,
+};

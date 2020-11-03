@@ -6,12 +6,16 @@ import Header from '../../components/Header';
 import List from './List';
 import operations from '../../redux/operations';
 
-const ListView = ({ fetchUsers, data, history, totalPages, currentPage }) => {
+const ListView = ({ fetchUsers, data, history, totalPages, currentPage, deleteUser }) => {
   useEffect(() => {
     fetchUsers(currentPage);
   }, []);
 
   const onClickPage = (page) => fetchUsers(page);
+  const onDeleteRow = (e, id) => {
+    e.stopPropagation();
+    deleteUser(id, currentPage);
+  };
 
   return (
     <>
@@ -23,6 +27,7 @@ const ListView = ({ fetchUsers, data, history, totalPages, currentPage }) => {
           totalPages={totalPages}
           currentPage={currentPage}
           onClickPage={onClickPage}
+          onDeleteRow={onDeleteRow}
         />
       )}
     </>

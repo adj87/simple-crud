@@ -7,7 +7,7 @@ const NotificationCenterBackground = styled.div`
   position: fixed;
   top: 50px;
   right: 15px;
-  z-index: 100000;
+  z-index: 1051;
 `;
 
 const Cross = styled.span`
@@ -25,6 +25,8 @@ const Notification = styled.div`
   display: flex;
   justify-content: space-between;
   border-radius: 5px;
+  animation: fadeInLeftBig;
+  animation-duration: 1s;
   background-color: ${({ type, theme }) => {
     switch (type) {
       case 'success':
@@ -38,18 +40,13 @@ const Notification = styled.div`
   }};
 `;
 
-const NotificationCenter = ({
-  notifications = [
-    { type: 'success', message: 'Biennnnnn' },
-    { type: 'error', message: 'Biennnnnn' },
-  ],
-}) => {
+const NotificationCenter = ({ notifications, unsetNotification }) => {
   return (
     <NotificationCenterBackground>
-      {notifications.map((el) => (
+      {notifications.map((el, i) => (
         <Notification type={el.type}>
           <span>{el.message}</span>
-          <Cross />
+          <Cross onClick={() => unsetNotification(i)} />
         </Notification>
       ))}
     </NotificationCenterBackground>

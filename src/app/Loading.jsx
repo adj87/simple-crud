@@ -1,11 +1,11 @@
 import React from 'react';
-import { SyncLoader } from 'react-spinners';
+import { PacmanLoader } from 'react-spinners';
 import styled, { withTheme } from 'styled-components';
 import { connect } from 'react-redux';
 
 const Background = styled.div`
   position: fixed;
-  background: #dad6d68c;
+  background: #00000047;
   display: ${({ display }) => display};
   justify-content: center;
   align-items: center;
@@ -21,7 +21,12 @@ const Loading = ({ loading, theme }) => {
 
   return (
     <Background display={display}>
-      <SyncLoader sizeUnit="px" size={25} color={theme.palette.primary.dark} loading={loading} />
+      <PacmanLoader
+        sizeUnit="px"
+        size={40}
+        color={theme.palette.secondary.dark}
+        loading={loading}
+      />
     </Background>
   );
 };
