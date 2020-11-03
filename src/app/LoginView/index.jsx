@@ -9,14 +9,14 @@ import Header from '../../components/Header';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 
-const LoginView = ({ login, history }) => {
+const LoginView = ({ login, history, logout }) => {
   const { register, handleSubmit, errors } = useForm({
     defaultValues: { email: 'eve.holt@reqres.in', password: 'cityslicka' },
   });
 
   return (
     <>
-      <Header />
+      <Header onLogout={logout} />
       <Modal header="sign in" size="xs">
         <form onSubmit={handleSubmit((data) => login(data, history))}>
           <Input label="Email" name="email" ref={register({ required: true })} errors={errors} />

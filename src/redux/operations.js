@@ -88,6 +88,12 @@ const unsetNotification = (notification) => (dispatch) => {
   return dispatch(actions.unsetNotification(notification));
 };
 
+const logout = (history) => (dispatch) => {
+  localStorage.removeItem('token');
+  history.push('/login');
+  return dispatch(actions.setUser(null));
+};
+
 export default {
   login,
   fetchUsers,
@@ -96,4 +102,5 @@ export default {
   setNotification,
   unsetNotification,
   deleteUser,
+  logout,
 };
