@@ -5,7 +5,7 @@ import operations from '../../redux/operations';
 
 const NotificationCenterBackground = styled.div`
   position: fixed;
-  top: 50px;
+  top: 10px;
   right: 15px;
   z-index: 1051;
 `;
