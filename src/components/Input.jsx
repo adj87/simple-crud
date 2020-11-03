@@ -4,7 +4,7 @@ import styled, { withTheme } from 'styled-components';
 const Label = styled.label`
   color: ${({ theme }) => theme.palette.primary.extraLight};
   display: block;
-  font-size: 16px;
+  font-size: 15px;
   margin-bottom: 5px;
 `;
 
@@ -15,7 +15,7 @@ const InputText = styled.input`
   border: 0.6px solid ${({ theme }) => theme.palette.grey[400]};
   padding: 7px;
   transition: 1s;
-  font-size: 16px;
+  font-size: 14px;
   width: -webkit-fill-available;
   &:focus {
     outline-color: ${({ theme }) => theme.palette.primary.extraLight};

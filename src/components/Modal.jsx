@@ -21,7 +21,7 @@ const CenteredDiv = styled.div`
   width: 20%;
   height: auto;
   border-radius: 20px;
-  padding: 15px 30px;
+  padding: 15px 20px;
   box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 24px 38px 3px rgba(0, 0, 0, 0.14),
     0px 9px 46px 8px rgba(0, 0, 0, 0.12);
 
@@ -32,7 +32,7 @@ const CenteredDiv = styled.div`
   }
 `;
 
-const Header = styled.h1`
+const Header = styled.h2`
   text-align: center;
   color: ${({ theme }) => theme.palette.primary.main};
   margin: 0px 0px 20px 0px;

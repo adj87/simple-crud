@@ -40,12 +40,18 @@ const Notification = styled.div`
   }};
 `;
 
+const Message = styled.span`
+  animation: bounceIn;
+  animation-duration: 3s;
+  --animate-repeat: 3;
+`;
+
 const NotificationCenter = ({ notifications, unsetNotification }) => {
   return (
     <NotificationCenterBackground>
       {notifications.map((el, i) => (
         <Notification type={el.type} key={el.message}>
-          <span>{el.message}</span>
+          <Message>{el.message}</Message>
           <Cross onClick={() => unsetNotification(i)} />
         </Notification>
       ))}
