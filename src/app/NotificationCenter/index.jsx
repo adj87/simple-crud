@@ -44,7 +44,7 @@ const NotificationCenter = ({ notifications, unsetNotification }) => {
   return (
     <NotificationCenterBackground>
       {notifications.map((el, i) => (
-        <Notification type={el.type}>
+        <Notification type={el.type} key={el.message}>
           <span>{el.message}</span>
           <Cross onClick={() => unsetNotification(i)} />
         </Notification>

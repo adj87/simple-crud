@@ -1,5 +1,7 @@
 import React from 'react';
 import styled, { withTheme } from 'styled-components';
+import { Container, Row, Col } from 'reactstrap';
+import { withRouter } from 'react-router-dom';
 
 const Centered = styled.div`
   display: flex;
@@ -29,24 +31,49 @@ const Subtitle = styled.span`
   color: ${({ theme }) => theme.palette.secondary.dark};
 `;
 
-const Wrapper = styled.div`
+const TitleAndSubtitleWrapper = styled.div`
   padding-top: 20px;
 `;
 
-const Header = ({ withAnimation = true }) => {
+const SignOut = styled.div`
+  font-size: 15px;
+  color: ${({ theme }) => theme.palette.primary.contrastText};
+  text-transform: uppercase;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.3s;
+  &:hover {
+    color: ${({ theme }) => theme.palette.primary.extraLight};
+  }
+`;
+
+const Header = ({ withAnimation = true, onLogout, history }) => {
   return (
-    <Wrapper>
-      <Centered withAnimation={withAnimation}>
-        <Title>
-          <Span primaryColor="extraLight">Simple </Span>
-          <Span primaryColor="contrastText">CRUD</Span>
-        </Title>
-      </Centered>
-      <Centered withAnimation={withAnimation}>
-        <Subtitle>built with react</Subtitle>
-      </Centered>
-    </Wrapper>
+    <Container fluid>
+      <Row>
+        <Col xs={2} />
+        <Col xs={8}>
+          <TitleAndSubtitleWrapper>
+            <Centered withAnimation={withAnimation}>
+              <Title>
+                <Span primaryColor="extraLight">Simple</Span>
+                <Span primaryColor="contrastText">CRUD</Span>
+              </Title>
+            </Centered>
+            <Centered withAnimation={withAnimation}>
+              <Subtitle>built with react</Subtitle>
+            </Centered>
+          </TitleAndSubtitleWrapper>
+        </Col>
+        <Col xs={2} align="center">
+          <SignOut onClick={() => onLogout(history)}>Sign Out</SignOut>
+        </Col>
+      </Row>
+    </Container>
   );
 };
 
-export default withTheme(React.memo(Header));
+export default withRouter(withTheme(React.memo(Header)));

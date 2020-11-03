@@ -6,7 +6,7 @@ import Header from '../../components/Header';
 import List from './List';
 import operations from '../../redux/operations';
 
-const ListView = ({ fetchUsers, data, history, totalPages, currentPage, deleteUser }) => {
+const ListView = ({ fetchUsers, data, history, totalPages, currentPage, deleteUser, logout }) => {
   useEffect(() => {
     fetchUsers(currentPage);
   }, []);
@@ -19,7 +19,7 @@ const ListView = ({ fetchUsers, data, history, totalPages, currentPage, deleteUs
 
   return (
     <>
-      <Header />
+      <Header onLogout={logout} />
       {data && (
         <List
           data={data}
