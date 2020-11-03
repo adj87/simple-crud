@@ -17,6 +17,7 @@
     "linebreak-style": 0,
     "comma-dangle": [2, "always-multiline"],
     "object-curly-newline": "off",
-    "arrow-body-style": "off"
+    "arrow-body-style": "off",
+    "implicit-arrow-linebreak": "off"
   }
 }

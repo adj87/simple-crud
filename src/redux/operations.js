@@ -8,6 +8,7 @@ const login = (credentials, history) => (dispatch) => {
   Axios.post(`https://reqres.in/api/login?delay=${delay}`, { ...credentials })
     .then(({ data }) => {
       const user = { email: credentials.email, token: data.token };
+      localStorage.setItem('token', data.token);
       dispatch(actions.setLoading(false));
       dispatch(actions.setUser(user));
       history.push('/home');
