@@ -14,11 +14,11 @@ const EditView = ({ fetchUser, history, updateUser }) => {
   const { register, handleSubmit, errors, reset } = useForm();
 
   useEffect(() => {
-    fetchUser(id, (user) => reset(user));
+    fetchUser(id, (user) => reset(user), history);
   }, []);
 
   const onCancel = history.goBack;
-  const onSubmit = (user) => updateUser({ ...user, id }, history.goBack);
+  const onSubmit = (user) => updateUser({ ...user, id }, history);
 
   return (
     <>

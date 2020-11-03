@@ -33,8 +33,8 @@ const NotFound = ({ history }) => (
   <Wrapper404>
     <Number>404</Number>
     <Text>Not Found</Text>
-    <Button color="secondary" onClick={() => history.goBack()}>
-      Go back
+    <Button color="secondary" onClick={() => history.push('/')}>
+      Go home
     </Button>
   </Wrapper404>
 );
