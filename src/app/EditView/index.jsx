@@ -17,7 +17,7 @@ const EditView = ({ fetchUser, history, updateUser }) => {
     fetchUser(id, (user) => reset(user), history);
   }, []);
 
-  const onCancel = history.goBack;
+  const onCancel = () => history.push('/home');
   const onSubmit = (user) => updateUser({ ...user, id }, history);
 
   return (
