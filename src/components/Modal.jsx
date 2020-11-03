@@ -28,7 +28,7 @@ const CenteredDiv = styled.div`
   width: 100%;
   margin: 0.5rem;
   @media ${device.deviceXs} {
-    width: ${({ size }) => (size === 'xs' ? '280px' : '400px')};
+    width: ${({ size }) => (size === 'xs' ? '280px' : '350px')};
   }
 `;
 
