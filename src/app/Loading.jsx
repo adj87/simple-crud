@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 
 const Background = styled.div`
   position: fixed;
-  background: #dad6d68c;
+  background: #00000047;
   display: ${({ display }) => display};
   justify-content: center;
   align-items: center;
