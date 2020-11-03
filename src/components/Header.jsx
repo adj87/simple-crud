@@ -30,7 +30,7 @@ const Subtitle = styled.span`
 `;
 
 const Wrapper = styled.div`
-  margin-top: 20px;
+  padding-top: 20px;
 `;
 
 const Header = ({ withAnimation = true }) => {
