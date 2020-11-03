@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
-import theme from './utils/theme';
+import { theme } from './utils/theme';
 import routes from './routes';
 import store from './redux/store';
 import ProtectedRoute from './components/ProtectedRoute';
