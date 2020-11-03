@@ -17,7 +17,7 @@ const LoginView = ({ login, history }) => {
   return (
     <>
       <Header />
-      <Modal header="sign in">
+      <Modal header="sign in" size="xs">
         <form onSubmit={handleSubmit((data) => login(data, history))}>
           <Input label="Email" name="email" ref={register({ required: true })} errors={errors} />
           <Input
