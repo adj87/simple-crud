@@ -77,3 +77,4 @@ const Header = ({ withAnimation = true, onLogout, history }) => {
 };
 
 export default withRouter(withTheme(React.memo(Header)));
+// use react memo to avoid re-render the component with the css animation when deleting

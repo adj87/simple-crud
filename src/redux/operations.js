@@ -31,11 +31,10 @@ const fetchUsers = (page) => (dispatch) => {
     })
     .catch(() => {
       dispatch(actions.setLoading(false));
-      // dispatch();
     });
 };
 
-const fetchUser = (id, cb) => (dispatch) => {
+const fetchUser = (id, cb, history) => (dispatch) => {
   dispatch(actions.setLoading(true));
   Axios.get(`https://reqres.in/api/users/${id}?delay=${delay}`)
     .then(({ data }) => {
@@ -44,7 +43,7 @@ const fetchUser = (id, cb) => (dispatch) => {
     })
     .catch(() => {
       dispatch(actions.setLoading(false));
-      // dispatch();
+      history.push('/not-found');
     });
 };
 
@@ -71,6 +70,7 @@ const deleteUser = (id, page) => (dispatch) => {
     .then(() => {
       dispatch(actions.setNotification({ type: 'success', message: `User ${id} :deleted` }));
       dispatch(actions.setLoading(false));
+      // collect data again, but since it's a static rest api, data never changes
       fetchUsers(page)(dispatch);
     })
     .catch((err) => {
@@ -90,8 +90,9 @@ const unsetNotification = (notification) => (dispatch) => {
 
 const logout = (history) => (dispatch) => {
   localStorage.removeItem('token');
+  dispatch(actions.setUser(null));
+
   history.push('/login');
-  return dispatch(actions.setUser(null));
 };
 
 export default {
