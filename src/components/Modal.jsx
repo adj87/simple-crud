@@ -32,7 +32,7 @@ const CenteredDiv = styled.div`
   }
 `;
 
-const Header = styled.h2`
+const Header = styled.h1`
   text-align: center;
   color: ${({ theme }) => theme.palette.primary.main};
   margin: 0px 0px 20px 0px;
