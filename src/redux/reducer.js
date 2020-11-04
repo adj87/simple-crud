@@ -51,7 +51,8 @@ const appReducer = (state = initialState, action) => {
     case actionTypes.UNSET_SET_NOTIFICATION:
       return {
         ...state,
-        notifications: [...state.notifications.filter((el, i) => i !== payload)],
+        // if no payload(id, in this case) , delete all notifications
+        notifications: payload ? [...state.notifications.filter((el, i) => i !== payload)] : [],
       };
 
     default:

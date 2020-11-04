@@ -45,3 +45,7 @@ export const device = {
   deviceMd: `(min-width: ${theme.breakpoints.md}px)`,
   deviceLg: `(min-width: ${theme.breakpoints.lg}px)`,
 };
+
+export const delayApiReq = 1;
+
+export const defaultCredentials = { email: 'eve.holt@reqres.in', password: 'cityslicka' };

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { withTheme } from 'styled-components';
-import { device } from '../utils/theme';
+import { device } from '../constantsAndUtils';
 
 const Background = styled.div`
   background: rgba(0, 0, 0, 0.22);
@@ -32,7 +32,7 @@ const CenteredDiv = styled.div`
   }
 `;
 
-const Header = styled.h2`
+const Header = styled.h1`
   text-align: center;
   color: ${({ theme }) => theme.palette.primary.main};
   margin: 0px 0px 20px 0px;

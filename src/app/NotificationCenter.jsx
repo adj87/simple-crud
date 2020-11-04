@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import styled, { withTheme } from 'styled-components';
-import operations from '../../redux/operations';
+import operations from '../redux/operations';
 
 const NotificationCenterBackground = styled.div`
   position: fixed;

@@ -2,11 +2,18 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React from 'react';
 import styled, { withTheme } from 'styled-components';
+import { device } from '../../constantsAndUtils';
 
 const ListWrapper = styled.div`
   display: flex;
-  width: 800px;
-  margin: auto;
+  width: 100%;
+  padding: 0.5rem;
+  @media ${device.deviceMd} {
+    margin-left: auto;
+    margin-right: auto;
+    width: 450px;
+  }
+
   flex-direction: column;
   margin-top: 150px;
   animation: rotateIn;

@@ -32,6 +32,7 @@ const Subtitle = styled.span`
 `;
 
 const TitleAndSubtitleWrapper = styled.div`
+  cursor: default;
   padding-top: 20px;
 `;
 
@@ -59,7 +60,7 @@ const Header = ({ withAnimation = true, onLogout, history }) => {
           <TitleAndSubtitleWrapper>
             <Centered withAnimation={withAnimation}>
               <Title>
-                <Span primaryColor="extraLight">Simple</Span>
+                <Span primaryColor="extraLight">Simple </Span>
                 <Span primaryColor="contrastText">CRUD</Span>
               </Title>
             </Centered>

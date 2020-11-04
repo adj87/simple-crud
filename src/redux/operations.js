@@ -1,11 +1,10 @@
 import Axios from 'axios';
 import * as actions from './actions';
-
-const delay = 1;
+import { delayApiReq } from '../constantsAndUtils';
 
 const login = (credentials, history) => (dispatch) => {
   dispatch(actions.setLoading(true));
-  Axios.post(`https://reqres.in/api/login?delay=${delay}`, { ...credentials })
+  Axios.post(`https://reqres.in/api/login?delay=${delayApiReq}`, { ...credentials })
     .then(({ data }) => {
       const user = { email: credentials.email, token: data.token };
       localStorage.setItem('token', data.token);
@@ -22,7 +21,7 @@ const login = (credentials, history) => (dispatch) => {
 
 const fetchUsers = (page) => (dispatch) => {
   dispatch(actions.setLoading(true));
-  Axios.get(`https://reqres.in/api/users?delay=${delay}&page=${page}&per_page=3`)
+  Axios.get(`https://reqres.in/api/users?delay=${delayApiReq}&page=${page}&per_page=3`)
     .then(({ data }) => {
       dispatch(actions.setLoading(false));
       dispatch(actions.setCurrentPage(data.page));
@@ -36,7 +35,7 @@ const fetchUsers = (page) => (dispatch) => {
 
 const fetchUser = (id, cb, history) => (dispatch) => {
   dispatch(actions.setLoading(true));
-  Axios.get(`https://reqres.in/api/users/${id}?delay=${delay}`)
+  Axios.get(`https://reqres.in/api/users/${id}?delay=${delayApiReq}`)
     .then(({ data }) => {
       dispatch(actions.setLoading(false));
       cb(data.data);
@@ -47,15 +46,15 @@ const fetchUser = (id, cb, history) => (dispatch) => {
     });
 };
 
-const updateUser = ({ id, ...user }, cb) => (dispatch) => {
+const updateUser = ({ id, ...user }, history) => (dispatch) => {
   dispatch(actions.setLoading(true));
-  Axios.put(`https://reqres.in/api/users/${id}?delay=${delay}`, user)
+  Axios.put(`https://reqres.in/api/users/${id}?delay=${delayApiReq}`, user)
     .then(({ data }) => {
       dispatch(
         actions.setNotification({ type: 'success', message: `User ${data.first_name} :updated` }),
       );
       dispatch(actions.setLoading(false));
-      cb();
+      history.push('/');
     })
     .catch((err) => {
       const { error } = err.response.data;
@@ -66,7 +65,7 @@ const updateUser = ({ id, ...user }, cb) => (dispatch) => {
 
 const deleteUser = (id, page) => (dispatch) => {
   dispatch(actions.setLoading(true));
-  Axios.delete(`https://reqres.in/api/users/${id}?delay=${delay}`)
+  Axios.delete(`https://reqres.in/api/users/${id}?delay=${delayApiReq}`)
     .then(() => {
       dispatch(actions.setNotification({ type: 'success', message: `User ${id} :deleted` }));
       dispatch(actions.setLoading(false));
@@ -90,7 +89,9 @@ const unsetNotification = (notification) => (dispatch) => {
 
 const logout = (history) => (dispatch) => {
   localStorage.removeItem('token');
+
   dispatch(actions.setUser(null));
+  dispatch(actions.unsetNotification()); // delete all notifications
 
   history.push('/login');
 };
