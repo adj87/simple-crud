@@ -1,17 +1,22 @@
 import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/dist/yup';
 import { connect } from 'react-redux';
 import { withRouter, useParams } from 'react-router-dom';
 import { Container, Row, Col } from 'reactstrap';
+
 import Modal from '../../components/Modal';
 import Header from '../../components/Header';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 import operations from '../../redux/operations';
+import validationSchema from './validationSchema';
 
 const EditView = ({ fetchUser, history, updateUser }) => {
   const { id } = useParams();
-  const { register, handleSubmit, errors, reset } = useForm();
+  const { register, handleSubmit, errors, reset } = useForm({
+    resolver: yupResolver(validationSchema),
+  });
 
   useEffect(() => {
     fetchUser(id, (user) => reset(user), history);
