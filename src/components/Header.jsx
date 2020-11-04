@@ -32,6 +32,7 @@ const Subtitle = styled.span`
 `;
 
 const TitleAndSubtitleWrapper = styled.div`
+  cursor: default;
   padding-top: 20px;
 `;
 
