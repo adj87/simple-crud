@@ -8,10 +8,11 @@ import Modal from '../../components/Modal';
 import Header from '../../components/Header';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
+import { defaultCredentials } from '../../constantsAndUtils';
 
 const LoginView = ({ login, history, logout }) => {
   const { register, handleSubmit, errors } = useForm({
-    defaultValues: { email: 'eve.holt@reqres.in', password: 'cityslicka' },
+    defaultValues: defaultCredentials,
   });
 
   return (

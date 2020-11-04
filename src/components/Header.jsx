@@ -59,7 +59,7 @@ const Header = ({ withAnimation = true, onLogout, history }) => {
           <TitleAndSubtitleWrapper>
             <Centered withAnimation={withAnimation}>
               <Title>
-                <Span primaryColor="extraLight">Simple</Span>
+                <Span primaryColor="extraLight">Simple </Span>
                 <Span primaryColor="contrastText">CRUD</Span>
               </Title>
             </Centered>
