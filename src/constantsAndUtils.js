@@ -48,4 +48,6 @@ export const device = {
 
 export const delayApiReq = 1;
 
+export const resultsPerPage = 3;
+
 export const defaultCredentials = { email: 'eve.holt@reqres.in', password: 'cityslicka' };

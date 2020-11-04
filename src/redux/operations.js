@@ -1,6 +1,6 @@
 import Axios from 'axios';
 import * as actions from './actions';
-import { delayApiReq } from '../constantsAndUtils';
+import { delayApiReq, resultsPerPage } from '../constantsAndUtils';
 
 const login = (credentials, history) => (dispatch) => {
   dispatch(actions.setLoading(true));
@@ -21,7 +21,9 @@ const login = (credentials, history) => (dispatch) => {
 
 const fetchUsers = (page) => (dispatch) => {
   dispatch(actions.setLoading(true));
-  Axios.get(`https://reqres.in/api/users?delay=${delayApiReq}&page=${page}&per_page=3`)
+  Axios.get(
+    `https://reqres.in/api/users?delay=${delayApiReq}&page=${page}&per_page=${resultsPerPage}`,
+  )
     .then(({ data }) => {
       dispatch(actions.setLoading(false));
       dispatch(actions.setCurrentPage(data.page));
