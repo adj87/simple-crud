@@ -89,7 +89,9 @@ const unsetNotification = (notification) => (dispatch) => {
 
 const logout = (history) => (dispatch) => {
   localStorage.removeItem('token');
+
   dispatch(actions.setUser(null));
+  dispatch(actions.unsetNotification()); // delete all notifications
 
   history.push('/login');
 };
