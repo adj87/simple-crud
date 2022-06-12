@@ -1,6 +1,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
 import { theme } from './constantsAndUtils';
@@ -16,6 +16,7 @@ function App() {
       <ThemeProvider theme={theme}>
         <BrowserRouter>
           <Switch>
+            <Redirect to="/home" from="/" exact />
             {routes.map(({ component, path, exact, authIsRequired }) => {
               if (authIsRequired) {
                 return (
