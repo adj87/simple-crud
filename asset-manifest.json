@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/simple-crud/static/css/main.a98a4e17.chunk.css",
-    "main.js": "/simple-crud/static/js/main.e0817587.chunk.js",
-    "main.js.map": "/simple-crud/static/js/main.e0817587.chunk.js.map",
-    "runtime-main.js": "/simple-crud/static/js/runtime-main.ba0e54db.js",
-    "runtime-main.js.map": "/simple-crud/static/js/runtime-main.ba0e54db.js.map",
-    "static/css/2.fe0d70cc.chunk.css": "/simple-crud/static/css/2.fe0d70cc.chunk.css",
-    "static/js/2.2e69ffc9.chunk.js": "/simple-crud/static/js/2.2e69ffc9.chunk.js",
-    "static/js/2.2e69ffc9.chunk.js.map": "/simple-crud/static/js/2.2e69ffc9.chunk.js.map",
-    "static/js/3.f50249f4.chunk.js": "/simple-crud/static/js/3.f50249f4.chunk.js",
-    "static/js/3.f50249f4.chunk.js.map": "/simple-crud/static/js/3.f50249f4.chunk.js.map",
-    "index.html": "/simple-crud/index.html",
-    "static/css/2.fe0d70cc.chunk.css.map": "/simple-crud/static/css/2.fe0d70cc.chunk.css.map",
-    "static/css/main.a98a4e17.chunk.css.map": "/simple-crud/static/css/main.a98a4e17.chunk.css.map",
-    "static/js/2.2e69ffc9.chunk.js.LICENSE.txt": "/simple-crud/static/js/2.2e69ffc9.chunk.js.LICENSE.txt",
-    "static/media/index.css": "/simple-crud/static/media/RedHatDisplay-Regular.e7897cb2.ttf"
+    "main.css": "/simple-crud/home/static/css/main.6499cce2.chunk.css",
+    "main.js": "/simple-crud/home/static/js/main.e0817587.chunk.js",
+    "main.js.map": "/simple-crud/home/static/js/main.e0817587.chunk.js.map",
+    "runtime-main.js": "/simple-crud/home/static/js/runtime-main.96ccdfac.js",
+    "runtime-main.js.map": "/simple-crud/home/static/js/runtime-main.96ccdfac.js.map",
+    "static/css/2.fe0d70cc.chunk.css": "/simple-crud/home/static/css/2.fe0d70cc.chunk.css",
+    "static/js/2.8027df6d.chunk.js": "/simple-crud/home/static/js/2.8027df6d.chunk.js",
+    "static/js/2.8027df6d.chunk.js.map": "/simple-crud/home/static/js/2.8027df6d.chunk.js.map",
+    "static/js/3.f50249f4.chunk.js": "/simple-crud/home/static/js/3.f50249f4.chunk.js",
+    "static/js/3.f50249f4.chunk.js.map": "/simple-crud/home/static/js/3.f50249f4.chunk.js.map",
+    "index.html": "/simple-crud/home/index.html",
+    "static/css/2.fe0d70cc.chunk.css.map": "/simple-crud/home/static/css/2.fe0d70cc.chunk.css.map",
+    "static/css/main.6499cce2.chunk.css.map": "/simple-crud/home/static/css/main.6499cce2.chunk.css.map",
+    "static/js/2.8027df6d.chunk.js.LICENSE.txt": "/simple-crud/home/static/js/2.8027df6d.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/simple-crud/home/static/media/RedHatDisplay-Regular.e7897cb2.ttf"
   },
   "entrypoints": [
-    "static/js/runtime-main.ba0e54db.js",
+    "static/js/runtime-main.96ccdfac.js",
     "static/css/2.fe0d70cc.chunk.css",
-    "static/js/2.2e69ffc9.chunk.js",
-    "static/css/main.a98a4e17.chunk.css",
+    "static/js/2.8027df6d.chunk.js",
+    "static/css/main.6499cce2.chunk.css",
     "static/js/main.e0817587.chunk.js"
   ]
 }
