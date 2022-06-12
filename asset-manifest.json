@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/simple-crud/home/static/css/main.6499cce2.chunk.css",
-    "main.js": "/simple-crud/home/static/js/main.eb215267.chunk.js",
-    "main.js.map": "/simple-crud/home/static/js/main.eb215267.chunk.js.map",
+    "main.js": "/simple-crud/home/static/js/main.79735f5a.chunk.js",
+    "main.js.map": "/simple-crud/home/static/js/main.79735f5a.chunk.js.map",
     "runtime-main.js": "/simple-crud/home/static/js/runtime-main.96ccdfac.js",
     "runtime-main.js.map": "/simple-crud/home/static/js/runtime-main.96ccdfac.js.map",
     "static/css/2.fe0d70cc.chunk.css": "/simple-crud/home/static/css/2.fe0d70cc.chunk.css",
@@ -21,6 +21,6 @@
     "static/css/2.fe0d70cc.chunk.css",
     "static/js/2.8027df6d.chunk.js",
     "static/css/main.6499cce2.chunk.css",
-    "static/js/main.eb215267.chunk.js"
+    "static/js/main.79735f5a.chunk.js"
   ]
 }
