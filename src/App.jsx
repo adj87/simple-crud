@@ -14,7 +14,7 @@ function App() {
   return (
     <Provider store={store}>
       <ThemeProvider theme={theme}>
-        <BrowserRouter>
+        <BrowserRouter basename="/simple-crud">
           <Switch>
             <Redirect to="/home" from="/" exact />
             {routes.map(({ component, path, exact, authIsRequired }) => {
